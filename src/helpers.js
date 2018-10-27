@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const syncExec = require('sync-exec')
 const Table = require('cli-table2')
-const { yellow } = require('colors')
+const colors = require('colors')
 const argv = require('yargs-parser')(process.argv.slice(2))
 const path = require('path')
 
@@ -13,6 +13,20 @@ const path = require('path')
 let productionModifier = '--production'
 
 let setup = includeDev => {
+  if (argv.help) {
+    console.log('Usage:')
+    console.log(
+      '\t--assert-smaller <size in KB> - Checks whether the final package size is smaller than given value, if not the process will exit with error'
+    )
+    console.log('\t--yarn - Use yarn instead of npm to install dependencies')
+    console.log('\t--less - Show the biggest 10 modules')
+    console.log('\t--no-install - Skip installation')
+    console.log(
+      '\t--include-dev - Include devDependencies as well - for 🚀 collaborator experience'
+    )
+    console.log('\t--help - Show this help')
+    process.exit(0)
+  }
   console.log()
 
   if (argv.includeDev || includeDev) productionModifier = ''
