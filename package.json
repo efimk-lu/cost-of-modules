@@ -11,7 +11,7 @@
     "precommit": "lint-staged"
   },
   "files": [
-    "dist"
+    "src"
   ],
   "repository": {
     "type": "git",
