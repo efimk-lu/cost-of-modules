@@ -5,6 +5,7 @@
   "author": "siddharthkp",
   "homepage": "https://github.com/siddharthkp/cost-of-modules#readme",
   "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "npm run ava",
     "ava": "ava test/src/*.js -s --no-cache",
